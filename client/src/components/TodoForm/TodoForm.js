@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './TodoForm.css';
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = ({ dispatch }) => {
 	const [Task, setTask] = useState('');
 
 	const changeHandler = (e) => {
@@ -12,7 +12,7 @@ const TodoForm = ({ addTodo }) => {
 		if (Task === '') {
 			return;
 		}
-		addTodo(Task);
+		dispatch({ type: 'ADDTODO', payload: Task });
 		setTask('');
 	};
 	return (
