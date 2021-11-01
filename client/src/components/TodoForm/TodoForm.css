@@ -1,0 +1,37 @@
+.todo-form {
+    margin-top: 40px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 1px solid #5858e2;
+}
+
+.todo-form input{
+    height: 34px;
+    min-width: 360px;
+    background-color: rgb(223, 182, 255);
+    border: none;
+    outline: none;
+    font-size: larger;
+    font-weight:bold;
+    padding-left: 15px;
+}
+
+.todo-form input:focus{
+    background-color: rgb(217, 176, 250);
+}
+
+.todo-form button{
+    padding: 5px;
+    height: 33px;
+    width: 50px;
+    outline: none;
+    background-color: white;
+    border: 1.5px solid blueviolet;
+    margin-left: 2px;
+}
+
+.todo-form button:hover{
+    background-color: rgb(236, 236, 236);
+}

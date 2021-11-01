@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { Fragment, useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import TodoForm from './components/TodoForm/TodoForm';
+import TodoList from './components/TodoList/TodoList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [List, setList] = useState(new Set());
+
+	const addTodo = (todo) => {
+		List.add({ name: todo, index: List.length, done: false });
+		setList(new Set(List));
+	};
+	const removeTodo = (todo) => {
+		List.delete(todo);
+		// console.log(List);
+		setList(new Set(List));
+	};
+	return (
+		<Fragment>
+			<Header />
+			<div className='container'>
+				<TodoForm addTodo={addTodo} />
+				<TodoList list={List} removeTodo={removeTodo} />
+			</div>
+		</Fragment>
+	);
 }
 
 export default App;

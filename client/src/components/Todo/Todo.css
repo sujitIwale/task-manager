@@ -1,0 +1,56 @@
+.todo-item {
+    margin: 10px 0;
+    padding: 0 15px;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 3px;
+    width: 345px;
+    min-height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    background-color: rgb(247, 56, 56);
+    color: rgb(37, 37, 37);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.todo-item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+}
+.todo-item .checkbox {
+    cursor: pointer;
+    height: 21px;
+    width: 21px;
+    background-color: #eee;
+    outline: none;
+    border: none;
+}
+
+/* .todo-item p {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+} */
+
+.done {
+  text-decoration: line-through;
+  background-color: rgb(87, 255, 87);
+}
+
+.svg-icon {
+  width: 1.7em;
+  height: 1.7em;
+  cursor: pointer;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #3f0064;
+  stroke-width: 2em;
+}
+
+.svg-icon circle {
+  stroke: #8305cc;
+  stroke-width: 1em;
+}
