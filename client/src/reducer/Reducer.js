@@ -1,10 +1,10 @@
 const Reducer = (state, action) => {
-	console.log(state);
+	console.log(state.List);
 	switch (action.type) {
 		case 'ADDTODO': {
 			state.List.add({
 				name: action.payload,
-				index: state.List.length,
+				index: state.List.size + 1,
 				done: false,
 			});
 			return {
@@ -18,9 +18,7 @@ const Reducer = (state, action) => {
 			};
 		}
 		default: {
-			return {
-				...state,
-			};
+			return state;
 		}
 	}
 };
