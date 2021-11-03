@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import NoteForm from '../../components/NoteForm/NoteForm';
 import NotesList from '../../components/NotesList/NotesList';
 
+
 const Notes = () => {
 	const [List, setList] = useState(new Set());
 
@@ -23,5 +24,9 @@ const Notes = () => {
 		</Fragment>
 	);
 };
+
+
+
+
 
 export default Notes;

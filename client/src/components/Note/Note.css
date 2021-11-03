@@ -1,3 +1,12 @@
 .note {
     border: 1px solid rgb(196, 188, 188);
+    padding: 10px;
+    border-radius: 7px;
+    font-size: large;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+
+.note:hover {
+  box-shadow: 0 0 10px rgba(185, 184, 184, 0.8);
+}
+

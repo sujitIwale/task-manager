@@ -1,4 +1,10 @@
-.note-list {
+.notes-list-container {
+    padding: 30px;
+    overflow: auto;
+}
+
+.notes-list {
     display: grid;
-    grid-template-columns: repeat(3,100px);
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, minmax(150px,1fr));
 }

@@ -16,9 +16,13 @@ const NotesList = ({ List }) => {
 	// const NoteContext = useContext(NoteContext);
 	// const { List, removeNote } = NoteContext;
 	return List && List.size > 0 ? (
-		<div className='note-list customized-scrollbar'>{getNotes(List)}</div>
+		<div className='notes-list-container customized-scrollbar'>
+			<div className='notes-list grid'>{getNotes(List)}</div>
+		</div>
 	) : (
-		<h2>No Notes</h2>
+		<div className='notes-list-container'>
+			<h2>No Notes</h2>
+		</div>
 	);
 };
 

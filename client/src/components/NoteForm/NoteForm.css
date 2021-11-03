@@ -10,13 +10,15 @@
 
 .note-form textarea{
     height: 75px;
-    min-width: 360px;
+    min-width: 400px;
     background-color: rgb(248, 255, 182);
     border: none;
     outline: none;
     font-size: larger;
     font-weight:bold;
     padding: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 7px;
 }
 
 .note-form textarea:focus{
