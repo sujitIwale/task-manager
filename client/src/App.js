@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
+import Notes from './pages/Notes/Notes';
 import Todos from './pages/Todos/Todos';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
 			<Switch>
 				<Route exact path='/todos'>
 					<Todos />
+				</Route>
+				<Route exact path='/notes'>
+					<Notes />
 				</Route>
 			</Switch>
 		</Router>

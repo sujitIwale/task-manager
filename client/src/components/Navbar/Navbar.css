@@ -12,4 +12,8 @@
 
 .navbar ul li {
     margin: 0 100px;
+    font-size: larger;
+}
+.selected {
+    border-bottom: 4px solid rgb(140, 104, 199);
 }
