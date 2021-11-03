@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { TodoContext } from '../../context/TodoContext';
 import './TodoForm.css';
 
-const TodoForm = ({ dispatch }) => {
+const TodoForm = () => {
 	const [Task, setTask] = useState('');
-
+	const todoContext = useContext(TodoContext);
+	const { addTodo } = todoContext;
 	const changeHandler = (e) => {
 		setTask(e.target.value);
 	};
@@ -12,7 +14,7 @@ const TodoForm = ({ dispatch }) => {
 		if (Task === '') {
 			return;
 		}
-		dispatch({ type: 'ADDTODO', payload: Task });
+		addTodo(Task);
 		setTask('');
 	};
 	return (

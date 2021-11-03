@@ -1,16 +1,12 @@
-import { Fragment, useReducer } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import TodoForm from './components/TodoForm/TodoForm';
-import TodoList from './components/TodoList/TodoList';
-import Reducer from './reducer/Reducer';
+import Navbar from './components/Navbar/Navbar';
+import Todos from './pages/Todos/Todos';
 
 function App() {
-	const initialState = {
-		List: new Set(),
-	};
 	console.log('app rendered');
-	const [state, dispatch] = useReducer(Reducer, initialState);
 	// const [List, setList] = useState(new Set());
 
 	// const addTodo = (todo) => {
@@ -23,13 +19,15 @@ function App() {
 	// 	setList(new Set(List));
 	// };
 	return (
-		<Fragment>
+		<Router>
 			<Header />
-			<div className='container'>
-				<TodoForm dispatch={dispatch} />
-				<TodoList list={state.List} dispatch={dispatch} />
-			</div>
-		</Fragment>
+			<Navbar />
+			<Switch>
+				<Route exact path='/todos'>
+					<Todos />
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 

@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 0 100px;
+}

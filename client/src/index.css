@@ -8,6 +8,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+a {
+  text-decoration: none;
+}
 .m-10 {
   margin: 10px;
 }
