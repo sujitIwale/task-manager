@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { NotesContext } from '../../context/NotesCotext';
+import { resizeAllGridItems } from '../../resize';
 import Note from '../Note/Note';
 import './NoteList.css';
 
@@ -12,9 +14,12 @@ const getNotes = (list) => {
 	return Notes;
 };
 
-const NotesList = ({ List }) => {
-	// const NoteContext = useContext(NoteContext);
-	// const { List, removeNote } = NoteContext;
+const NotesList = () => {
+	setTimeout(() => {
+		resizeAllGridItems();
+	}, 100);
+	const notesContext = useContext(NotesContext);
+	const { List } = notesContext;
 	return List && List.size > 0 ? (
 		<div className='notes-list-container customized-scrollbar'>
 			<div className='notes-list grid'>{getNotes(List)}</div>

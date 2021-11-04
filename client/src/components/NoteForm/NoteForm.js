@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-// import { NoteContext } from '../../context/NoteContext';
+import { NotesContext } from '../../context/NotesCotext';
 import './NoteForm.css';
 
-const NoteForm = ({ addNote }) => {
+const NoteForm = () => {
 	const [Note, setNote] = useState('');
-	// const NoteContext = useContext(NoteContext);
-	// const { addNote } = NoteContext;
+	const notesContext = useContext(NotesContext);
+	const { addNote } = notesContext;
 	const changeHandler = (e) => {
 		setNote(e.target.value);
 	};
