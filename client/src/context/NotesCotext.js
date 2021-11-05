@@ -12,8 +12,10 @@ export const NotesState = (props) => {
 	const [state, dispatch] = useReducer(NotesReducer, initialState);
 
 	const addNote = (note) => {
-		resizeAllGridItems();
-		setTimeout(() => {}, 100);
+		
+		setTimeout(() => {
+			resizeAllGridItems();
+		}, 100);
 		dispatch({ type: 'ADDNOTE', payload: note });
 	};
 

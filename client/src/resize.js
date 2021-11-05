@@ -10,13 +10,10 @@ function resizeGridItem(item) {
 	const rowSpan = Math.ceil(
 		(item.querySelector('.sub').getBoundingClientRect().height +
 			rowGap +
-			7) /
+			2) /
 			(rowHeight + rowGap)
 	);
-	console.log(
-		'rowSpan' +
-			(item.querySelector('.sub').getBoundingClientRect().height + rowGap)
-	);
+	
 	item.style.gridRowEnd = 'span ' + rowSpan;
 }
 

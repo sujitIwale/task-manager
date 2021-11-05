@@ -21,9 +21,11 @@ const NoteForm = () => {
 		<form className='note-form' onSubmit={submitHandler}>
 			<textarea
 				type='text'
+				wrap='hard'
 				onChange={changeHandler}
 				value={Note}
 				placeholder="Add Note's"
+				cols='30'
 			/>
 			<div className='pointer' onClick={submitHandler}>
 				<img

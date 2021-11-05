@@ -8,7 +8,7 @@ const Note = ({ Note }) => {
 	return (
 		<div className='note'>
 			<div className='sub'>
-				<p>{Note.text}</p>
+				<span>{Note.text}</span>
 			</div>
 		</div>
 	);
