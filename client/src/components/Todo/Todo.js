@@ -7,7 +7,7 @@ const Todo = ({ todo, removeTodo, index }) => {
 		setChecked(!Checked);
 		todo.done = !Checked;
 	};
-	console.log('object');
+
 	return (
 		<div className={`todo-item ${todo.done ? 'done' : ''}`}>
 			<input

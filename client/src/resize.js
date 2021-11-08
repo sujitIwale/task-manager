@@ -8,9 +8,7 @@ function resizeGridItem(item) {
 	);
 
 	const rowSpan = Math.ceil(
-		(item.querySelector('.sub').getBoundingClientRect().height +
-			rowGap +
-			2) /
+		(item.querySelector('.sub').getBoundingClientRect().height + rowGap) /
 			(rowHeight + rowGap)
 	);
 	
