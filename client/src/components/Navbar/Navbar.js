@@ -9,13 +9,12 @@ const Navbar = () => {
 	};
 	return (
 		<>
-			{/* <div class='area'></div> */}
-			<nav class='main-menu'>
+			<nav className='main-menu'>
 				<ul>
 					<li>
 						<Link to='/'>
 							<i className={`fa fa-home ${isSelected('/')}`}></i>
-							<span class='nav-text'>Home</span>
+							<span className='nav-text'>Home</span>
 						</Link>
 					</li>
 					<li>
@@ -24,7 +23,7 @@ const Navbar = () => {
 								className={`fa fa-tasks ${isSelected(
 									'/todos'
 								)}`}></i>
-							<span class='nav-text'>Tasks</span>
+							<span className='nav-text'>Tasks</span>
 						</Link>
 					</li>
 					<li>
@@ -33,16 +32,16 @@ const Navbar = () => {
 								className={`fa fa-sticky-note ${isSelected(
 									'/notes'
 								)}`}></i>
-							<span class='nav-text'>Notes</span>
+							<span className='nav-text'>Notes</span>
 						</Link>
 					</li>
 					<li>
-						<Link to='/projects'>
+						<Link to='/kanban'>
 							<i
 								className={`fa fa-laptop ${isSelected(
-									'/projects'
+									'/kanban'
 								)}`}></i>
-							<span class='nav-text'>Projects</span>
+							<span className='nav-text'>Kanban</span>
 						</Link>
 					</li>
 					<li>
@@ -51,7 +50,7 @@ const Navbar = () => {
 								className={`fa fa-user-friends ${isSelected(
 									'/teams'
 								)}`}></i>
-							<span class='nav-text'>Teams</span>
+							<span className='nav-text'>Teams</span>
 						</Link>
 					</li>
 					<li>
@@ -60,20 +59,10 @@ const Navbar = () => {
 								className={`fa fa-user ${isSelected(
 									'/account'
 								)}`}></i>
-							<span class='nav-text'>Account</span>
+							<span className='nav-text'>Account</span>
 						</Link>
 					</li>
 				</ul>
-
-				{/* <ul class='logout'>
-					<li>
-						<Link to='/'>
-							<i
-								className={`fa fa-home ${isSelected('/')}`}></i>
-							<span class='nav-text'>Home</span>
-						</Link>
-					</li>
-				</ul> */}
 			</nav>
 		</>
 	);
