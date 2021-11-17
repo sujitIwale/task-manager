@@ -7,7 +7,6 @@
 }
 
 .kanban-board {
-  display: flex;
   /* align-items: center; */
   justify-content: center;
   padding: .5rem;
@@ -31,7 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 55px;
+  min-height: 80px;
   background-color: white;
   border-radius: 3px;
   color: #282c34;
