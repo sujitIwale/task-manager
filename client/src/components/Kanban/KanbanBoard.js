@@ -27,9 +27,7 @@ const KanbanBoard = ({ data }) => {
 		dragItemNode.current = null;
 	};
 	const dragEnterHandler = (e, targetItem) => {
-		console.log('Entering a drag target', targetItem);
 		if (dragItemNode.current !== e.target) {
-			console.log('Target is NOT the same as dragged item');
 			setList((oldList) => {
 				let newList = JSON.parse(JSON.stringify(oldList));
 				newList[targetItem.groupIndex].tasks.splice(
@@ -61,7 +59,7 @@ const KanbanBoard = ({ data }) => {
 				{list.map((group, groupIndex) => (
 					<div
 						key={groupIndex}
-						className='kanban-group'
+						className={`kanban-group ${group.title}`}
 						onDragEnter={
 							dragging && !group.tasks.length
 								? (e) =>
@@ -71,7 +69,7 @@ const KanbanBoard = ({ data }) => {
 										})
 								: null
 						}>
-						<div className='group-title'>
+						<div className={`group-title ${group.title}`}>
 							<h3>{group.title}</h3>
 						</div>
 						{group.tasks.map((task, taskIndex) => (

@@ -1,5 +1,5 @@
-.kanban-main {
-    margin: 20px 100px;
+.kanban-main {    
+    margin: 20px 0;
     height: 650px;
     width: 100%;
     overflow: auto;
@@ -7,6 +7,9 @@
 }
 
 .kanban-board {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
   padding: .5rem;
   display: grid;
   gap: .5rem;
@@ -17,34 +20,54 @@
 }
 .kanban-group {
   background-color: #49505e;
-  border-radius: 5px;
-  padding: .5rem;
+  padding: .4rem;
   min-height: 150px;
   padding-bottom: 20px;
 }
-
+/* .kanban-group:-moz-drag-over {
+  cursor:move;
+} */
 .kanban-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70px;
+  min-height: 55px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #282c34;
-  margin: 10px;
+  margin: 7px;
   font-weight: bold;
+  cursor: pointer;
 }
+
+/* .kanban-item:active {
+  cursor:move;
+} */
 
 .kanban-item * {  
   margin: 0;
 }
 
 .group-title {
-    /* background-color: rgb(211, 143, 243); */
     text-align: center;
     padding: 3px;
     border-radius: 5px;
     color: white;
+}
+.Done {
+  background-color: rgb(120, 236, 91);
+}
+
+.Pending {
+  background-color: rgb(243, 53, 53);
+}
+
+.Doing {
+  background-color: rgb(243, 230, 53);
+}
+
+.Todo {
+  background-color: rgb(230, 129, 15);
 }
 
 .current {
