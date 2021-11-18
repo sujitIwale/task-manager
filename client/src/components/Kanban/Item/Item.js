@@ -8,10 +8,12 @@ const Item = ({
 	dragEnterHandler,
 	dragging,
 	getStyles,
+	onClick,
 }) => {
 	return (
 		<div
 			draggable
+			onClick={() => onClick(task, groupIndex, taskIndex)}
 			onDragStart={(e) =>
 				dragStartHandler(e, {
 					groupIndex,

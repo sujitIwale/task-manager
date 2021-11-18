@@ -46,3 +46,41 @@ a:focus {
 	color: #3994e4;
 }
 
+@media only screen and (max-width:400px){
+	.header {
+		display: none;
+	}
+	.main-menu {
+		background: #1a1a1a;
+		position: fixed;
+		height: 70px;
+		bottom: 0;
+		width: 100%;
+		overflow: hidden;
+		align-items: center;
+		padding: 3px 5px 3px 5px;
+	}
+	.main-menu ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		list-style: none;
+		margin-right: 15px;
+	}
+	.main-menu ul li {
+		padding: 0;
+	}
+	.main-menu ul li i{
+		font-size: large;
+	}
+	.kanban-main {
+		height: 100vh !important;
+	}
+	.notes-container {
+		height: 100vh !important;
+	}
+	.container {
+		height: 100vh !important;
+	}
+}

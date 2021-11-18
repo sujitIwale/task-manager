@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Modal from '../../Shared/Modal/Modal';
 import AddForm from '../AddForm/AddForm';
 import Item from '../Item/Item';
@@ -13,7 +13,8 @@ const Group = ({
 	dragItemNode,
 }) => {
 	console.log('Group');
-	const [Form, setForm] = useState(false);
+	const [Form, setForm] = useState({ opened: false, for: 'add' });
+	const taskUpdate = useRef();
 	const dragStartHandler = (e, item) => {
 		dragItemNode.current = e.target;
 		dragItemNode.current.addEventListener('dragend', dragEndHandler);
@@ -57,18 +58,56 @@ const Group = ({
 		return 'kanban-item';
 	};
 
+	const updateTask = (task, groupInd, taskInd) => {
+		console.log('task', taskInd);
+		setList((oldList) => {
+			let newList = JSON.parse(JSON.stringify(oldList));
+			newList[groupInd].tasks.splice(taskInd, 1, task);
+			return newList;
+		});
+		setForm({ opened: false, for: 'add' });
+	};
+
+	const getModalComponent = () => {
+		if (Form.for === 'add')
+			return (
+				<AddForm
+					groupIndex={groupIndex}
+					addTask={addTask}
+					type={Form.for}
+				/>
+			);
+		else if (Form.for === 'update') {
+			return (
+				<AddForm
+					groupIndex={taskUpdate.current.groupIndex}
+					taskIndex={taskUpdate.current.taskIndex}
+					task={taskUpdate.current.task}
+					updateTask={updateTask}
+					type={Form.for}
+				/>
+			);
+		}
+	};
 	const addTask = (task, groupInd) => {
 		setList((oldList) => {
 			let newList = JSON.parse(JSON.stringify(oldList));
 			newList[groupInd].tasks.push(task);
 			return newList;
 		});
-		setForm(!Form);
+		setForm({ opened: false, for: 'add' });
+	};
+	const openTask = (task, groupInd, taskInd) => {
+		taskUpdate.current = {};
+		taskUpdate.current.task = task;
+		taskUpdate.current.groupIndex = groupInd;
+		taskUpdate.current.taskIndex = taskInd;
+		setForm({ opened: true, for: 'update' });
 	};
 	return (
 		<div
 			key={groupIndex}
-			className={`kanban-group ${group.title}`}
+			className={`kanban-group`}
 			onDragEnter={
 				dragging && !group.tasks.length
 					? (e) =>
@@ -78,30 +117,38 @@ const Group = ({
 							})
 					: null
 			}>
-			<div className={`group-title ${group.title}`}>
-				<h3>{group.title}</h3>
+			<div className='kanban-group-header'>
+				<div className={`group-title ${group.title}`}>
+					<h3>{group.title}</h3>
+				</div>
+				<div
+					className='add-button'
+					onClick={() => setForm({ opened: true, for: 'add' })}>
+					<i className='fas fa-plus'></i>
+					<span>Add</span>
+				</div>
 			</div>
-			<div className='add-button' onClick={() => setForm(!Form)}>
-				<i class='fas fa-plus'></i>
-				<label>Add</label>
-			</div>
-			{Form && (
-				<Modal closeModal={() => setForm(!Form)}>
-					<AddForm groupIndex={groupIndex} addTask={addTask} />
+			{Form.opened && (
+				<Modal
+					closeModal={() => setForm({ opened: false, for: 'add' })}>
+					{getModalComponent()}
 				</Modal>
 			)}
-			{group.tasks.map((task, taskIndex) => (
-				<Item
-					key={taskIndex}
-					task={task}
-					groupIndex={groupIndex}
-					taskIndex={taskIndex}
-					dragStartHandler={dragStartHandler}
-					dragEnterHandler={dragEnterHandler}
-					dragging={dragging}
-					getStyles={getStyles}
-				/>
-			))}
+			<div className='kanban-task-container scrollbar'>
+				{group.tasks.map((task, taskIndex) => (
+					<Item
+						key={taskIndex}
+						task={task}
+						groupIndex={groupIndex}
+						taskIndex={taskIndex}
+						dragStartHandler={dragStartHandler}
+						dragEnterHandler={dragEnterHandler}
+						dragging={dragging}
+						getStyles={getStyles}
+						onClick={openTask}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };
