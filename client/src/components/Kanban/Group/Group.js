@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../../Shared/Modal/Modal';
+import AddForm from '../AddForm/AddForm';
 import Item from '../Item/Item';
 
 const Group = ({
@@ -55,6 +56,15 @@ const Group = ({
 		}
 		return 'kanban-item';
 	};
+
+	const addTask = (task, groupInd) => {
+		setList((oldList) => {
+			let newList = JSON.parse(JSON.stringify(oldList));
+			newList[groupInd].tasks.push(task);
+			return newList;
+		});
+		setForm(!Form);
+	};
 	return (
 		<div
 			key={groupIndex}
@@ -77,17 +87,7 @@ const Group = ({
 			</div>
 			{Form && (
 				<Modal closeModal={() => setForm(!Form)}>
-					<form className='todo-form'>
-						<input
-							type='text'
-							// onChange={changeHandler}
-							// value={Task}
-							placeholder="Add Todo's"
-						/>
-						<button type='submit' className='pointer'>
-							Add
-						</button>
-					</form>
+					<AddForm groupIndex={groupIndex} addTask={addTask} />
 				</Modal>
 			)}
 			{group.tasks.map((task, taskIndex) => (

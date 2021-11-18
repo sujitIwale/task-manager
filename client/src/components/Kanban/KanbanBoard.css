@@ -17,6 +17,7 @@
   height: 100%;
   grid-template-columns: repeat(auto-fill, 300px);
   align-items: start;
+  
 }
 .kanban-group {
   background-color: #49505e;
@@ -30,15 +31,22 @@
 } */
 .kanban-item {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 7px 0px 0px 7px;
+  min-height: 50px;
   background-color: white;
   border-radius: 3px;
   color: #282c34;
   margin: 7px;
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.kanban-item p {
+  padding: 0px 7px 2px 7px;
+  word-wrap: break-word;
 }
 
 /* .kanban-item:active {

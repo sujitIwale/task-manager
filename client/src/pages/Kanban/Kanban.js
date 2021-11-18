@@ -3,10 +3,10 @@ import KanbanBoard from '../../components/Kanban/KanbanBoard';
 
 const Kanban = () => {
 	const kanbanGroups = [
-		{ title: 'Todo', tasks: ['1', '2', '3', '1', '2'] },
-		{ title: 'InProgress', tasks: ['6'] },
-		{ title: 'Pending', tasks: ['6'] },
-		{ title: 'Done', tasks: ['4', '5'] },
+		{ title: 'Todo', tasks: [] },
+		{ title: 'InProgress', tasks: [] },
+		{ title: 'Pending', tasks: [] },
+		{ title: 'Done', tasks: [] },
 	];
 	return (
 		<Fragment>

@@ -1,9 +1,10 @@
 import './Button.css';
 
-const Button = ({ textValue, onClick, bgColor }) => {
+const Button = ({ textValue, onClick, bgColor, className, type }) => {
 	return (
 		<button
-			className='btn'
+			type={type}
+			className={`btn ${className}`}
 			onClick={onClick}
 			style={{ backgroundColor: bgColor }}>
 			{textValue}

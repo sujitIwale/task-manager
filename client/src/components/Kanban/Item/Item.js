@@ -32,7 +32,10 @@ const Item = ({
 			className={
 				dragging ? getStyles({ groupIndex, taskIndex }) : 'kanban-item'
 			}>
-			<h2>{task}</h2>
+			<div className='task-container'>
+				<h2>{task.title}</h2>
+				<p>{task.description}</p>
+			</div>
 		</div>
 	);
 };
