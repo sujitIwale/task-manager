@@ -17,8 +17,8 @@
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	display: flex;
 	flex-direction: column;
-	padding: 25px;
-    margin-bottom: 15%;
+	padding: 18px;
+    margin-bottom: 14%;
 }
 
 .modalContainer .title {

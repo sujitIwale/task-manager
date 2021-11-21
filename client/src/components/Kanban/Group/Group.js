@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import Modal from '../../Shared/Modal/Modal';
-import Input from '../../Shared/Input/Input';
 import AddForm from '../AddForm/AddForm';
 import Item from '../Item/Item';
 import './Group.css';
@@ -15,7 +14,6 @@ const Group = ({
 	dragItem,
 	dragItemNode,
 }) => {
-	// console.log('Group');
 	const [Form, setForm] = useState({ opened: false, for: 'add' });
 	const taskUpdate = useRef();
 	const dragStartHandler = (e, item) => {
@@ -116,15 +114,7 @@ const Group = ({
 		taskUpdate.current.taskIndex = taskInd;
 		setForm({ opened: true, for: 'update' });
 	};
-	const changeGroupTitle = (e) => {
-		console.log(e.target.value);
-		if (e.target.value === '') return;
-		setList((oldList) => {
-			let newList = JSON.parse(JSON.stringify(oldList));
-			newList[groupIndex].title = e.target.value;
-			return newList;
-		});
-	};
+
 	return (
 		<div
 			key={groupIndex}
