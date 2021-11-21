@@ -29,7 +29,7 @@ const Navbar = () => {
 									className={`fa fa-tasks ${isSelected(
 										'/todos'
 									)}`}></i>
-								<span className='nav-text'>Tasks</span>
+								<span className='nav-text'>Todo's</span>
 							</div>
 						</Link>
 					</li>

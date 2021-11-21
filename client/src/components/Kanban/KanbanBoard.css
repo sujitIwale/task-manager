@@ -1,7 +1,7 @@
 .kanban-main {    
     height: 93vh;
     width:100vw;
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
     background-color: #c6c7ca;
 }

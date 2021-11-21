@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { TodoContext } from '../../context/TodoContext';
+import React from 'react';
+import { useTodo } from '../../hooks/useTodo';
 import Todo from '../Todo/Todo';
 import './TodoList.css';
 
@@ -21,8 +21,7 @@ const getTodos = (list, removeTodo) => {
 };
 
 const TodoList = () => {
-	const todoContext = useContext(TodoContext);
-	const { List, removeTodo } = todoContext;
+	const { List, removeTodo } = useTodo();
 	return List && List.size > 0 ? (
 		<div className='todo-list customized-scrollbar'>
 			{getTodos(List, removeTodo)}

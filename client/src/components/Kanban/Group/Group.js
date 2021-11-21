@@ -12,7 +12,7 @@ const Group = ({
 	dragItem,
 	dragItemNode,
 }) => {
-	console.log('Group');
+	// console.log('Group');
 	const [Form, setForm] = useState({ opened: false, for: 'add' });
 	const taskUpdate = useRef();
 	const dragStartHandler = (e, item) => {
@@ -33,6 +33,8 @@ const Group = ({
 	};
 	const dragEnterHandler = (e, targetItem) => {
 		if (dragItemNode.current !== e.target) {
+			console.log(dragItemNode.current);
+			console.log(e.target);
 			setList((oldList) => {
 				let newList = JSON.parse(JSON.stringify(oldList));
 				newList[targetItem.groupIndex].tasks.splice(

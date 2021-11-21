@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { TodoContext } from '../../context/TodoContext';
+import React, { useState } from 'react';
+import { useTodo } from '../../hooks/useTodo';
 import './TodoForm.css';
 
 const TodoForm = () => {
 	const [Task, setTask] = useState('');
-	const todoContext = useContext(TodoContext);
-	const { addTodo } = todoContext;
+	const { addTodo } = useTodo();
 	const changeHandler = (e) => {
 		setTask(e.target.value);
 	};
