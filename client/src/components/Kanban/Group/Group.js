@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
 import Modal from '../../Shared/Modal/Modal';
+import Input from '../../Shared/Input/Input';
 import AddForm from '../AddForm/AddForm';
 import Item from '../Item/Item';
+import './Group.css';
+import GroupTitle from '../GroupTitle/GroupTitle';
 
 const Group = ({
 	setList,
@@ -97,6 +100,13 @@ const Group = ({
 			newList[groupInd].tasks.push(task);
 			return newList;
 		});
+		setTimeout(() => {
+			const container = document.querySelectorAll(
+				'.kanban-task-container'
+			);
+			container[groupInd].scrollTop = container[groupInd].scrollHeight;
+		}, 100);
+
 		setForm({ opened: false, for: 'add' });
 	};
 	const openTask = (task, groupInd, taskInd) => {
@@ -105,6 +115,15 @@ const Group = ({
 		taskUpdate.current.groupIndex = groupInd;
 		taskUpdate.current.taskIndex = taskInd;
 		setForm({ opened: true, for: 'update' });
+	};
+	const changeGroupTitle = (e) => {
+		console.log(e.target.value);
+		if (e.target.value === '') return;
+		setList((oldList) => {
+			let newList = JSON.parse(JSON.stringify(oldList));
+			newList[groupIndex].title = e.target.value;
+			return newList;
+		});
 	};
 	return (
 		<div
@@ -120,9 +139,11 @@ const Group = ({
 					: null
 			}>
 			<div className='kanban-group-header'>
-				<div className={`group-title ${group.title}`}>
-					<h3>{group.title}</h3>
-				</div>
+				<GroupTitle
+					title={group.title}
+					setList={setList}
+					groupIndex={groupIndex}
+				/>
 				<div
 					className='add-button'
 					onClick={() => setForm({ opened: true, for: 'add' })}>

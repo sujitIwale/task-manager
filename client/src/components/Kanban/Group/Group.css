@@ -1,0 +1,9 @@
+.group-title-input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 2px;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+}
