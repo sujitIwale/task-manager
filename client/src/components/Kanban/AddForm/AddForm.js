@@ -34,6 +34,7 @@ const AddForm = ({
 				onChange={changeHandler}
 				placeholder='Enter Task'
 				value={Task.title}
+				autoFocus={true}
 			/>
 			<label>Description</label>
 			<textarea
