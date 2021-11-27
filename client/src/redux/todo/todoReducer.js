@@ -2,7 +2,7 @@ const initialState = {
 	List: new Set(),
 };
 
-const Reducer = (state = initialState, action) => {
+const todoReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'ADDTODO': {
 			state.List.add({
@@ -26,4 +26,4 @@ const Reducer = (state = initialState, action) => {
 	}
 };
 
-export default Reducer;
+export default todoReducer;
