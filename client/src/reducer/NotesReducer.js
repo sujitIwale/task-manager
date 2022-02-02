@@ -1,10 +1,7 @@
 const NotesReducer = (state, action) => {
 	switch (action.type) {
 		case 'ADDNOTE': {
-			state.List.add({
-				text: action.payload,
-				index: state.List.size + 1,
-			});
+			state.List.add(action.payload);
 			return {
 				...state,
 			};

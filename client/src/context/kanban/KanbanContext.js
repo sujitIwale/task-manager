@@ -7,9 +7,26 @@ export const KanbanContext = createContext();
 export const KanbanState = (props) => {
 	const initialState = {
 		list: [
-			{ title: 'Todo', tasks: [] },
-			{ title: 'InProgress', tasks: [] },
-			{ title: 'Done', tasks: [] },
+			{
+				title: 'Todo',
+				tasks: [
+					'Add new features',
+					'bug fixing',
+					'testing code',
+					'deploying code',
+				],
+			},
+			{ title: 'InProgress', tasks: ['Login page', 'api calls'] },
+			{
+				title: 'Done',
+				tasks: [
+					'state management',
+					'Register Page',
+					'landing page',
+					'register and login api',
+					'responsive website',
+				],
+			},
 		],
 		dragging: false,
 	};
