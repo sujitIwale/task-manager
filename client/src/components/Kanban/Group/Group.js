@@ -92,12 +92,12 @@ const Group = ({ groupIndex, group, dragItem, dragItemNode }) => {
 			newList[groupInd].tasks.push(task);
 			return newList;
 		});
-		setTimeout(() => {
-			const container = document.querySelectorAll(
-				'.kanban-task-container'
-			);
-			container[groupInd].scrollTop = container[groupInd].scrollHeight;
-		}, 100);
+		// setTimeout(() => {
+		// 	const container = document.querySelectorAll(
+		// 		'.kanban-task-container'
+		// 	);
+		// 	container[groupInd].scrollTop = container[groupInd].scrollHeight;
+		// }, 100);
 
 		setForm({ opened: false, for: 'add' });
 	};

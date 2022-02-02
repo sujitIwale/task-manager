@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Kanban from './pages/Kanban/Kanban';
-// import Landing from './pages/Landing/Landing';
+import Landing from './pages/Landing/Landing';
 import Notes from './pages/Notes/Notes';
 import Todos from './pages/Todos/Todos';
 
@@ -26,9 +26,9 @@ function App() {
 			<Header />
 			<Navbar />
 			<Switch>
-				{/* <Route exact path='/'>
+				<Route exact path='/'>
 					<Landing />
-				</Route> */}
+				</Route>
 				<Route exact path='/todos'>
 					<Todos />
 				</Route>

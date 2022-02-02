@@ -35,7 +35,7 @@ const Item = ({
 				dragging ? getStyles({ groupIndex, taskIndex }) : 'kanban-item'
 			}>
 			<div className='task-container'>
-				<h3>{task}</h3>
+				<h3>{task.title}</h3>
 			</div>
 		</div>
 	);

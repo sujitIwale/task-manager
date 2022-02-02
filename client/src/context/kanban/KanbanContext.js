@@ -10,21 +10,28 @@ export const KanbanState = (props) => {
 			{
 				title: 'Todo',
 				tasks: [
-					'Add new features',
-					'bug fixing',
-					'testing code',
-					'deploying code',
+					{ title: 'Add new features', description: '' },
+					{ title: 'bug fixing', description: '' },
+					{ title: 'testing code', description: '' },
+					{ title: 'deploying code', description: '' },
 				],
 			},
-			{ title: 'InProgress', tasks: ['Login page', 'api calls'] },
+			{
+				title: 'InProgress',
+				tasks: [
+					{ title: 'Add new features', description: '' },
+					{ title: 'Login page', description: '' },
+					{ title: 'api calls', description: '' },
+				],
+			},
 			{
 				title: 'Done',
 				tasks: [
-					'state management',
-					'Register Page',
-					'landing page',
-					'register and login api',
-					'responsive website',
+					{ title: 'state management', description: '' },
+					{ title: 'Register Page', description: '' },
+					{ title: 'landing page', description: '' },
+					{ title: 'register and login api', description: '' },
+					{ title: 'responsive website', description: '' },
 				],
 			},
 		],
