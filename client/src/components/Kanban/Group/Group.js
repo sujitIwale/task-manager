@@ -1,22 +1,19 @@
 import React, { useRef, useState } from 'react';
 import Modal from '../../Shared/Modal/Modal';
 import AddForm from '../AddForm/AddForm';
-import Item from '../Item/Item';
 import './Group.css';
-import GroupTitle from '../GroupTitle/GroupTitle';
+import { useKanban } from '../../../hooks/useKanban';
+import ItemList from '../ItemList/ItemList';
+import GroupHeader from '../GroupHeader/GroupHeader';
 
-const Group = ({
-	setList,
-	groupIndex,
-	group,
-	dragging,
-	setDragging,
-	dragItem,
-	dragItemNode,
-}) => {
+const Group = ({ groupIndex, group, dragItem, dragItemNode }) => {
+	const { setList, dragging, setDragging } = useKanban();
 	const [Form, setForm] = useState({ opened: false, for: 'add' });
 	const taskUpdate = useRef();
+
+	// drag events
 	const dragStartHandler = (e, item) => {
+		console.log('drag start');
 		dragItemNode.current = e.target;
 		dragItemNode.current.addEventListener('dragend', dragEndHandler);
 		dragItem.current = item;
@@ -25,7 +22,6 @@ const Group = ({
 			setDragging(true);
 		}, 0);
 	};
-
 	const dragEndHandler = (e) => {
 		setDragging(false);
 		dragItem.current = null;
@@ -34,8 +30,6 @@ const Group = ({
 	};
 	const dragEnterHandler = (e, targetItem) => {
 		if (dragItemNode.current !== e.target) {
-			console.log(dragItemNode.current);
-			console.log(e.target);
 			setList((oldList) => {
 				let newList = JSON.parse(JSON.stringify(oldList));
 				newList[targetItem.groupIndex].tasks.splice(
@@ -51,6 +45,7 @@ const Group = ({
 			});
 		}
 	};
+	// styles for the group title
 	const getStyles = (item) => {
 		if (
 			dragItem.current.groupIndex === item.groupIndex &&
@@ -62,7 +57,6 @@ const Group = ({
 	};
 
 	const updateTask = (task, groupInd, taskInd) => {
-		console.log('task', taskInd);
 		setList((oldList) => {
 			let newList = JSON.parse(JSON.stringify(oldList));
 			newList[groupInd].tasks.splice(taskInd, 1, task);
@@ -128,40 +122,27 @@ const Group = ({
 							})
 					: null
 			}>
-			<div className='kanban-group-header'>
-				<GroupTitle
-					title={group.title}
-					setList={setList}
-					groupIndex={groupIndex}
-				/>
-				<div
-					className='add-button'
-					onClick={() => setForm({ opened: true, for: 'add' })}>
-					<i className='fas fa-plus'></i>
-					<span>Add</span>
-				</div>
-			</div>
+			<GroupHeader
+				group={group}
+				setList={setList}
+				groupIndex={groupIndex}
+				setForm={setForm}
+			/>
 			{Form.opened && (
 				<Modal
 					closeModal={() => setForm({ opened: false, for: 'add' })}>
 					{getModalComponent()}
 				</Modal>
 			)}
-			<div className='kanban-task-container scrollbar'>
-				{group.tasks.map((task, taskIndex) => (
-					<Item
-						key={taskIndex}
-						task={task}
-						groupIndex={groupIndex}
-						taskIndex={taskIndex}
-						dragStartHandler={dragStartHandler}
-						dragEnterHandler={dragEnterHandler}
-						dragging={dragging}
-						getStyles={getStyles}
-						onClick={openTask}
-					/>
-				))}
-			</div>
+			<ItemList
+				group={group}
+				groupIndex={groupIndex}
+				dragStartHandler={dragStartHandler}
+				dragEnterHandler={dragEnterHandler}
+				dragging={dragging}
+				getStyles={getStyles}
+				openTask={openTask}
+			/>
 		</div>
 	);
 };

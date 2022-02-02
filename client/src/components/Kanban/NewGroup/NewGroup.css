@@ -1,0 +1,14 @@
+.new-group {
+    display: block;
+    font: size 28px;;
+    font-weight: 400;
+    background-color: #3a3d3f;
+    color: #f1f6f8;
+    padding: 8px 30px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.new-group:hover {
+    background-color: #585c5f;
+}

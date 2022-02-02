@@ -2,14 +2,6 @@
     box-sizing: border-box;
 }
 
-.header {
-    display: none;
-}
-
-.main-menu {
-    display: none;
-}
-
 .landing-page-container {
     width: 1170px;
     /* padding-right: 15px;
@@ -112,7 +104,7 @@
   clear: both;
 }
 
-@media only screen and (max-width:400px){
+/* @media only screen and (max-width:400px){
 	.header {
 		display: none;
 	}
@@ -149,6 +141,6 @@
 	.container {
 		height: 100vh !important;
 	}
-}
+} */
 
 /* End Landing Page */

@@ -1,28 +1,30 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { GroupState } from '../../context/kanban/GroupContext';
+import { useKanban } from '../../hooks/useKanban';
 import Group from './Group/Group';
 import './KanbanBoard.css';
+import NewGroup from './NewGroup/NewGroup';
 
-const KanbanBoard = ({ data }) => {
-	const [list, setList] = useState(data);
-	const [dragging, setDragging] = useState(false);
+const KanbanBoard = () => {
+	const { list } = useKanban();
+	// const [dragging, setDragging] = useState(false);
 	const dragItem = useRef();
 	const dragItemNode = useRef();
-	// console.log('kanban');
 	return (
 		<div className='kanban-main'>
-			<div className='kanban-board'>
-				{list.map((group, groupIndex) => (
-					<Group
-						key={groupIndex}
-						group={group}
-						groupIndex={groupIndex}
-						setList={setList}
-						dragging={dragging}
-						setDragging={setDragging}
-						dragItem={dragItem}
-						dragItemNode={dragItemNode}
-					/>
-				))}
+			<div className='kanban-board customized-scrollbar'>
+				<GroupState>
+					{list.map((group, groupIndex) => (
+						<Group
+							key={groupIndex}
+							group={group}
+							groupIndex={groupIndex}
+							dragItem={dragItem}
+							dragItemNode={dragItemNode}
+						/>
+					))}
+					<NewGroup />
+				</GroupState>
 			</div>
 		</div>
 	);

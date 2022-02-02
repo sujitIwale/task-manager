@@ -26,9 +26,9 @@ function App() {
 			<Header />
 			<Navbar />
 			<Switch>
-				<Route exact path='/'>
+				{/* <Route exact path='/'>
 					<Landing />
-				</Route>
+				</Route> */}
 				<Route exact path='/todos'>
 					<Todos />
 				</Route>

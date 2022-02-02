@@ -5,17 +5,30 @@
     overflow-x: hidden;
     background-color: #c6c7ca;
 }
-
+[draggable=true] {
+  /*
+   To prevent user selecting inside the drag source
+  */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 .kanban-board {
   margin: 20px 0;
-  justify-content: center;
-  padding: .5rem;
+  /* padding: 20px; */
   display: grid;
-  gap: .5rem;
-  margin-left: 60px;
+  grid-auto-columns: 300px;
+  grid-auto-flow: column;
+  grid-column-gap: 15px;
+  align-items: start;
+  padding: 0 0.8rem 0.8rem;
+  overflow-x: auto;
+  height: calc(100vh - 8.6rem);
+  /* gap: .5rem; */
+  margin-left: 65px;
   /* width: 100%; */
-  grid-template-columns: repeat(auto-fill, 300px);
-  align-items: start; 
+  /* grid-template-columns: repeat(auto-fill, 300px); */
 }
 
 .scrollbar::-webkit-scrollbar {

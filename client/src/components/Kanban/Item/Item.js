@@ -8,12 +8,12 @@ const Item = ({
 	dragEnterHandler,
 	dragging,
 	getStyles,
-	onClick,
+	openTask,
 }) => {
 	return (
 		<div
 			draggable
-			onClick={() => onClick(task, groupIndex, taskIndex)}
+			onClick={() => openTask(task, groupIndex, taskIndex)}
 			onDragStart={(e) =>
 				dragStartHandler(e, {
 					groupIndex,
@@ -35,8 +35,7 @@ const Item = ({
 				dragging ? getStyles({ groupIndex, taskIndex }) : 'kanban-item'
 			}>
 			<div className='task-container'>
-				<h2>{task.title}</h2>
-				<p>{task.description}</p>
+				<h3>{task.title}</h3>
 			</div>
 		</div>
 	);
